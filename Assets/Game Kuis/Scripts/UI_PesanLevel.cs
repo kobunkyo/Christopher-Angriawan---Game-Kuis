@@ -6,6 +6,9 @@ using TMPro;
 public class UI_PesanLevel : MonoBehaviour
 {
     [SerializeField]
+    private Animator _animation = null;
+
+    [SerializeField]
     private GameObject _opsiMenang = null;
 
     [SerializeField]
@@ -52,6 +55,7 @@ public class UI_PesanLevel : MonoBehaviour
             _opsiMenang.SetActive(false);
             _opsiKalah.SetActive(true);
         }
+        _animation.SetBool("Menang", adalahBenar);
     }
 
     private void UI_Timer_EventWaktuHabis()
@@ -61,5 +65,6 @@ public class UI_PesanLevel : MonoBehaviour
 
         _opsiMenang.SetActive(false);
         _opsiKalah.SetActive(true);
+        _animation.SetBool("Menang", false);
     }
 }
